@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>TAMBOURINE MAN</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Kaushan+Script:wght@400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .page-wrapper {
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .background-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .section-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .header-content-wrapper {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .the {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0;
+        }
+
+        .tambourine-man {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            margin: 0;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .band {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .text-block {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Main Content Styles */
+        .main {
+            background: #fff;
+        }
+
+        .rock-and-roll {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .rock-and-roll-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .r-and-r-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .h3-kaushan {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .sub-heading-kaushan {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .p-r-r {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .music-img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        /* Video Styles */
+        .w-embed-youtubevideo {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .w-embed-youtubevideo iframe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Videos Section */
+        .videos-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .videos-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .videos-description {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .videos-description:hover {
+            transform: translateY(-5px);
+        }
+
+        .videos {
+            position: relative;
+        }
+
+        .video-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+        }
+
+        .description {
+            padding: 20px;
+        }
+
+        .descri-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .border {
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border-radius: 2px;
+        }
+
+        /* Dylan Tribute Shows */
+        .dylan-tribute-shows {
+            padding: 80px 0;
+        }
+
+        .dylan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .dylan-content {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .dylan-texts {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .dylan-description {
+            text-align: center;
+        }
+
+        .dylan-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .lightbox-link {
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-link:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 80px 0;
+        }
+
+        .event-heading-wrapper {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-heading {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .enent-text {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-content h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-content p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 107, 107, 0.3);
+        }
+
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tambourine-man {
+                font-size: 3.5rem;
+            }
+
+            .the, .band {
+                font-size: 2rem;
+            }
+
+            .rock-and-roll-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .h3-kaushan {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .footer-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tambourine-man {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .videos-wrapper,
+            .gallery-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="header">
+            <div class="background-video">
+                <video autoplay loop muted playsinline>
+                    <source src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b6076a1e9d621bd94d16eb_Dylan 2 Camera Demo-transcode.mp4" type="video/mp4">
+                    <source src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b6076a1e9d621bd94d16eb_Dylan 2 Camera Demo-transcode.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="header-overlay"></div>
+            <div class="section-wrapper">
+                <div class="header-content-wrapper">
+                    <h1 class="the">The</h1>
+                    <h1 class="tambourine-man">TAMBOURINE MAN</h1>
+                    <h1 class="band">BAND</h1>
+                    <div class="text-block">The Ultimate Tribute To Bob Dylan's Greatest Hits</div>
+                    <a href="#" class="button">Download EPK</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main">
+            <section class="rock-and-roll">
+                <div class="section-wrapper">
+                    <div class="rock-and-roll-wrapper fade-in">
+                        <div class="r-and-r-img-wrapper">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b462e45525915bb0ba2d18_r-and-r-img.png" 
+                                 loading="lazy" alt="Rock and Roll History" class="r-and-r-img"/>
+                        </div>
+                        <div class="r-and-r-text-wrapper">
+                            <h3 class="h3-kaushan">Experience Rock and Roll History!</h3>
+                            <div class="sub-heading-kaushan">Tambourine Man Band Tribute Bob Dylan's Greatest Hits the way you remember them!</div>
+                            <p class="p-r-r">The Tambourine Man Band is a devoted ensemble paying homage to the enduring legacy of the legendary Bob Dylan. Comprising passionate musicians, the group is committed to authentically capturing Dylan's unparalleled musical genius, offering audiences a captivating live experience with renditions of his most epic and cherished tunes.<br/><br/>From familiar classics to lesser-known gems, The Tambourine Man Band's performances evoke nostalgia and emotion, preserving the essence of Dylan's timeless compositions</p>
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b464a5a0e2af577b8ebf07_Group%202538.png" loading="lazy" alt="Music Note" class="music-img"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-wrapper">
+                    <h2 class="section-title fade-in">2024 LIVE PERFORMANCE VIDEO</h2>
+                    <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                        <iframe src="https://www.youtube.com/embed/K7E3pYnCZB8?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                allow="autoplay; encrypted-media" allowfullscreen 
+                                title="Tambourine Man Band Live Performance PROMO 2024"></iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="videos-section">
+                <div class="section-wrapper">
+                    <h2 class="section-title fade-in">VIDEOS</h2>
+                    <div class="videos-wrapper">
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/wIweKsu4KSw?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen 
+                                        title="Mr Tambourine Man Bob Dylan Tribute Band"></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">Tambourine man demo</h3>
+                                <div class="border _1"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/CfueBq56vl8?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen 
+                                        title="Tambourine Man Band Demo 2024"></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">2024 Demo Live at<br/>Garden Amp</h3>
+                                <div class="border _2"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/mhmar8Ku2zY?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen 
+                                        title="Sept Dylan Coach House Highlights"></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">Coach House Sept 2023</h3>
+                                <div class="border _3"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/jDFPZq3HWak?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen 
+                                        title="Tambourine Man Laguna Beach Highlights 2023"></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">Laguna beach sunset<br/>concert</h3>
+                                <div class="border _4"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/wResS2IgQLE?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">Opener at Coach House<br/>w/ "Dylan in Character" Maggies Farm 1st Going Electric Version 1965</h3>
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="videos-description">
+                            <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+                                <iframe src="https://www.youtube.com/embed/rK3J34_0JkE?rel=0&controls=1&autoplay=0&mute=0&start=0" 
+                                        allow="autoplay; encrypted-media" allowfullscreen 
+                                        title="Tambourine Man Bob Dylan Tribute Band Knockin on Heavens Door"></iframe>
+                            </div>
+                            <div class="description">
+                                <h3 class="descri-text">Yaamava Casino 2023<br/>Knockin on Heaven's Door</h3>
+                                <div class="border _6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="dylan-tribute-shows">
+                <div class="section-wrapper">
+                    <h2 class="section-title fade-in">SPECIAL BOB DYLAN TRIBUTE SHOWS</h2>
+                    <div class="dylan-grid">
+                        <div class="dylan-content">
+                            <p class="dylan-texts"><strong>Dylan Jagger:</strong> The Never Ending Tour<br/>Greatest Hits of Rock's Two Ageless Wonders</p>
+                            <a href="#" class="button">Download The EPK for Dylan Jagger</a>
+                        </div>
+                        <div class="dylan-content">
+                            <p class="dylan-texts"><strong>Dylan vs. Springsteen:</strong> A Musical Battle for Greatest American Songwriter</p>
+                        </div>
+                        <div class="dylan-description">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b912c0ea5bbd4b05f03c88_dylan.png" 
+                                 loading="lazy" alt="Dylan" class="dylan-img"/>
+                        </div>
+                        <div class="dylan-description">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b90230c24d53faf3032761_Picture2%201.png" 
+                                 loading="lazy" alt="Dylan Jagger" class="dylan-img"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="gallery-section">
+                <div class="section-wrapper">
+                    <h2 class="section-title fade-in">GALLERY</h2>
+                    <div class="gallery-wrapper">
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b4cb7a02968299fe3f25e8_gallery-img-1.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b4cb7a272e384cb90b7e2c_gallery-img-2.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/66117347767db0efc49b5c3c_4.client%20img%206.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b4cb7a0ad147f55622900e_gallery-img-4.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b4cb7aa0e2af577bcabcde_gallery-img-5.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/65b4cb7932335b4b31e980de_gallery-img-6.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/6611724a5c692dffcac0f3d7_4.client%20img%201.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                        <a href="#" class="lightbox-link">
+                            <img src="https://cdn.prod.website-files.com/65b451d913bba4915af31d72/6611738c68b67a0f3ac9a960_4.client%20img%203.png" 
+                                 loading="lazy" alt="Gallery Image" class="gallery-img"/>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="events">
+                <div class="section-wrapper">
+                    <div class="event-heading-wrapper">
+                        <h2 class="event-heading fade-in">UPCOMING EVENTS</h2>
+                        <p class="enent-text">Here's where you can see and experience the power of the most Epic Dylan songs made classic by Dylan and other legendary artists played live by Tambourine Man!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <div class="section-wrapper">
+                <div class="footer-wrapper">
+                    <div class="footer-content">
+                        <h3>TAMBOURINE MAN BAND</h3>
+                        <p>The Ultimate Tribute To Bob Dylan's Greatest Hits</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">YouTube</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact</h4>
+                        <p>For booking inquiries:</p>
+                        <a href="mailto:booking@tambourinemanband.com" class="contact-link">booking@tambourinemanband.com</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in animation
+        document.querySelectorAll('.fade-in, .rock-and-roll-wrapper, .videos-description, .dylan-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
