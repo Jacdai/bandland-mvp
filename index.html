@@ -11,10 +11,9 @@
     
     <script>
         // Initialize Supabase client
-        // REPLACE THESE WITH YOUR ACTUAL SUPABASE VALUES:
-        const supabaseUrl = 'YOUR_SUPABASE_URL_HERE';
-        const supabaseKey = 'YOUR_SUPABASE_ANON_KEY_HERE';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        const SUPABASE_URL = 'https://tnrzvzmiuvfvsvgmmdov.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRucnp2em1pdXZmdnN2Z21tZG92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1ODQ3MjAsImV4cCI6MjA3MDE2MDcyMH0.I23qNJ3YNGeEqIBgrQKF6sGD_Z0_Xwoi0Vq0YFGIYgQ';
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // Auth functions
         async function signUp(email, password) {
